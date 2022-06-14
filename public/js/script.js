@@ -13,11 +13,11 @@ const createDOMElement = (elementTag, attributes) => {
 const displayTopic = (path) => {
   const topicContainer = document.querySelector('[data-js="topics-container"]');
 
-  const filePath = `/content/${path}`;
+  const filePath = `./public/content/${path}`;
 
   const styleTag = createDOMElement('link', {
     rel: 'stylesheet',
-    href: '/css/markdown-styles.css',
+    href: './public/css/markdown-styles.css',
   });
   const templateTag = createDOMElement('template', {});
   const content = createDOMElement('zero-md', { src: filePath });
@@ -40,7 +40,7 @@ const checkTopic = (tags, words) => {
 };
 
 const findTopics = async (inputValue) => {
-  const response = await fetch('./content/tags.json');
+  const response = await fetch('./public/content/tags.json');
   const data = await response.json();
 
   if (inputValue === 'default') {
